@@ -1,0 +1,239 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;300;400;700&display=swap');
+$primaryColor: #0b223d;  /* rgb(11, 34, 61) */
+$secondaryColor: #00aeef;  /* rgb(0, 174, 239) */
+$white: #fff;
+$font: 16px;
+$fontFamily: 'Montserrat', sans-serif;
+$transition: .3s ease;
+$padding: 50px 0;
+
+/*****************
+basic styles
+*****************/
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    font-size: $font;
+    font-family: $fontFamily;
+    color: $primaryColor;
+    line-height: 1.5;
+}
+
+.container {
+    width: 80%;
+    margin:auto;
+    @media (max-width: 768px) {
+        width: 90%;
+    }
+}
+
+ul {
+    list-style-type: none;
+}
+
+a {
+    text-decoration: none;
+    color: $primaryColor;
+    &:hover {
+        color: $secondaryColor;
+        transition: $transition;
+    }
+}
+
+h2 {
+    font-size: 3rem;
+    text-align: center;
+    &::after {
+        display: block;
+        content: "";
+        width: 20%;
+        height: 15px;
+        background: linear-gradient(to right, $secondaryColor, $white);
+        margin: 10px auto 30px auto;
+    }
+}
+
+/****mixins****/
+@mixin btn {
+    text-transform: uppercase;
+    font-size: 1rem;
+    color: $white;
+    padding: 15px 30px;
+    border: none;
+    border-radius: 20px 0 20px 0;
+    background: linear-gradient(to left, $primaryColor, $secondaryColor);
+    display: block;
+    margin: 30px auto 0 auto;
+    cursor: pointer;
+    &:hover {
+        background: linear-gradient(to right, $primaryColor, $secondaryColor);
+    }
+}
+/****nav****/
+
+
+nav {
+    background: $white;
+    padding: 5px 0;
+    .container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        img {
+            width: 100px;
+            height: auto;
+        }
+        ul {
+            display: flex;
+            li {
+                text-transform: uppercase;
+                font-weight: 700;
+                padding-left: 30px;
+            }
+        }
+    }
+}
+
+/****headrer****/
+header {
+    background-image: linear-gradient(rgba(255,255,255,.99), rgba(0, 174, 239, .1)), url(./img/header.jpg);
+    background-position: center;
+    background-size: cover;
+    height: 80vh;
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;  
+    @media (max-width: 768px) {
+        justify-content: center;
+     } 
+    h1 {
+        text-align: right;
+        color: $white;
+        font-size: 3rem;
+        background: rgba($secondaryColor, .5);
+        padding: 30px 30px 30px 60px;
+        text-shadow: 0 0 3px $primaryColor;
+        border-radius: 200px 0 0 0 ;
+        @media (max-width: 768px) {
+           border-radius: 0;
+           text-align: center;
+           font-size: 2rem;
+        }
+    }
+}
+
+/****o nama****/
+.oNama {
+  padding: $padding;
+  h3 {
+      font-size: 1.7rem;
+      margin: 10px 0;
+  }
+  li::before {
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900;
+    content: "\f058";
+    margin-right: 5px;
+    color: $secondaryColor;
+  }
+  button {
+    @include btn;
+  }
+}
+
+/****usluge****/
+.usluge {
+    background-image: linear-gradient(rgba(0, 174, 239, .7), rgba(0, 174, 239, .7)), url(./img/bg.jpg);
+    background-position: center;
+    background-size: cover;
+    border-radius: 400px 0 0 0;
+    padding: $padding;
+    @media (max-width: 768px) {
+        border-radius: 0;
+     }
+    .container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+        article {
+            flex: 0 0 50%;
+            text-align: center;
+            padding: $padding;
+            @media (max-width: 768px) {
+                flex: 0 0 45%;
+             }
+            i {
+                color: $primaryColor;
+                font-size: 2rem;
+            }
+            p {
+                color: $white;
+            }
+        }
+    }
+}
+
+/****mentorske usluge****/
+.mentorskeUslugea {
+    padding: $padding;
+    button {
+      @include btn;
+    }
+  }
+
+  /****preporuke****/
+.preporuke {
+    background-image: linear-gradient(rgba(0, 174, 239, .7), rgba(0, 174, 239, .7)), url(./img/bg.jpg);
+    background-position: center;
+    background-size: cover;
+    border-radius: 0 400px 0 0;
+    padding: $padding;
+    @media (max-width: 768px) {
+        border-radius: 0;
+     }
+    .container {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        article {
+            flex: 0 0 25%;
+            text-align: center;
+            margin-right: 40px;
+            @media (max-width: 768px) {
+                flex: 0 0 90%;
+                margin: 0 auto 30px auto;
+             }
+            img {
+                width: 100%;
+                border-radius: 50%;
+            }
+            h4 {
+                color: $white;
+                padding: 20px 0;
+                span {
+                    color: $primaryColor;
+                }
+            }
+        }
+    }
+}
+
+ /****footer****/
+ footer {
+     background: $primaryColor;
+     padding: $padding;
+     text-align: center;
+     p {
+         color: $white;
+         a {
+            color: $secondaryColor;
+            &:hover {
+                color: $white;
+            }
+         }
+     }
+ }
